@@ -58,7 +58,7 @@ const Book = ({ bookId }) => {
 
   return (
     <>
-      <div className="flex flex-row flex-wrap lg:justify-start justify-center text-white mx-auto w-[70%] bg-[rgb(34,34,34)] mt-[5%]">
+      <div className="flex flex-row flex-wrap lg:justify-start justify-center text-white mx-auto md:w-[70%] w-[100%] bg-[rgb(34,34,34)] mt-[5%]">
         <div className="p-3">
           <img className="w-[300px] h-[370px]" src={bookData?.img} alt="" />
         </div>
