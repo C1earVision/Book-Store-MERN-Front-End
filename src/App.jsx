@@ -11,6 +11,7 @@ import ShowNavBar from './components/ShowNavBar'
 import WishList from './pages/WishList'
 import AdminPage from './pages/AdminPage'
 import ModifyPage from './pages/ModifyPage'
+import Footer from './components/Footer'
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
         <Route path="/books/:id/modify" element={<ModifyPage />} />        
         <Route path="/adminpage" element={<AdminPage />} />
       </Routes>
+      <Footer />
     </>
   )
 }
