@@ -2,7 +2,7 @@
   "name": "front-end",
   "private": true,
   "version": "0.0.0",
-  "proxy": "http://localhost:3000",
+  "proxy": "https://book-store-u2sc.onrender.com",
   "type": "module",
   "scripts": {
     "dev": "vite --host",
