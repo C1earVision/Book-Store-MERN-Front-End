@@ -12,6 +12,7 @@ import WishList from './pages/WishList'
 import AdminPage from './pages/AdminPage'
 import ModifyPage from './pages/ModifyPage'
 import Footer from './components/Footer'
+import About from './pages/About'
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
         <Route path="books/:id" element={<Book bookId={bookId} setBookId={setBookId} />} />
         <Route path="/books/:id/modify" element={<ModifyPage />} />        
         <Route path="/adminpage" element={<AdminPage />} />
+        <Route path="/about" element={<About />} />
       </Routes>
       <Footer />
     </>

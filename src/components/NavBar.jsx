@@ -22,8 +22,8 @@ const NavLinks = () => {
   };
   return (
     <div className="bg-[rgb(145,63,226)] leading-[3rem]">
-      <div className="w-[60%] ml-[10%]">
-        <ul className="flex flex-row flex-nowrap space-x-[2rem] text-white">
+      <div className="w-[100%]">
+        <ul className="flex flex-row justify-center flex-nowrap space-x-[2rem] text-white">
           <li className="hover:bg-[rgb(98,43,153)] w-[5rem] text-center">
             <Link to="/">Home</Link>
           </li>
@@ -32,9 +32,6 @@ const NavLinks = () => {
           </li>
           <li className="hover:bg-[rgb(98,43,153)] w-[5rem] text-center">
             <Link to="/about">About</Link>
-          </li>
-          <li className="hover:bg-[rgb(98,43,153)] lg:w-[8rem]  text-center">
-            <Link to="/mostpopular">Most Popular</Link>
           </li>
           {localStorage.getItem("admin") === "true" && (
             <li className="hover:bg-[rgb(98,43,153)] lg:w-[8rem]  text-center">
@@ -85,11 +82,6 @@ const SideBar = ({ userName }) => {
                   <Link className="m-2" to="/about">
                     <li className="hover:bg-[rgb(98,43,153)] px-2 rounded-sm">
                       about
-                    </li>
-                  </Link>
-                  <Link className="m-2" to="/mostpopular">
-                    <li className="hover:bg-[rgb(98,43,153)] px-2 rounded-sm">
-                      Most Popular
                     </li>
                   </Link>
                   <hr className="mt-5 mb-5" />
