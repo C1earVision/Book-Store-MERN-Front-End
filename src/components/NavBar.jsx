@@ -87,7 +87,7 @@ const SideBar = ({ userName }) => {
                   {localStorage.getItem("admin") === "true" && (
                     <Link className="m-2" to="/adminpage">
                       <li className="hover:bg-[rgb(98,43,153)] px-2 rounded-sm">
-                        about
+                        adminpage
                       </li>
                     </Link>
                   )}
