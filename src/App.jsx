@@ -27,7 +27,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home setBookId={setBookId} bookId={bookId} />} />
         <Route path="/search">
-          <Route index element={<Search setBookId={setBookId} searchData={searchData} setSearchData={setSearchData} />} />
+          <Route index element={<Search setBookId={setBookId} bookId={bookId} searchData={searchData} setSearchData={setSearchData} />} />
           <Route path=':id' element={<Book bookId={bookId} setBookId={setBookId} />} />
         </Route>
         <Route path="/login" element={<Login setUserName={setUserName} />} />

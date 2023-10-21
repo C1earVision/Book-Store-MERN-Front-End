@@ -17,7 +17,7 @@ const Home = ({ setBookId, bookId }) => {
     getData();
   }, []);
 
-  const wishList = async (bookId) => {
+   const wishList = async (bookId) => {
     if (!localStorage.getItem("token")) {
       alert("Please Log In");
       return;
