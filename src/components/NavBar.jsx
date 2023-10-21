@@ -84,6 +84,13 @@ const SideBar = ({ userName }) => {
                       about
                     </li>
                   </Link>
+                  {localStorage.getItem("admin") === "true" && (
+                    <Link className="m-2" to="/adminpage">
+                      <li className="hover:bg-[rgb(98,43,153)] px-2 rounded-sm">
+                        about
+                      </li>
+                    </Link>
+                  )}
                   <hr className="mt-5 mb-5" />
                   {localStorage.getItem("token") ? (
                     <div className="flex flex-row gap-10">
