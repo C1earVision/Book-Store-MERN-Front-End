@@ -33,8 +33,8 @@ const Login = ({ setUserName }) => {
   };
   return (
     <>
-      <div className="flex items-center h-[100vh]">
-        <div className="flex justify-center rounded-md sm:min-h-[50vh] min-h-[40vh] bg-[rgb(34,34,34)] sm:w-[40%] w-[80%] m-auto text-white">
+      <div className="flex items-center text-black h-[100vh] font-roboto">
+        <div className="flex justify-center rounded-md sm:min-h-[50vh] min-h-[40vh] bg-white sm:w-[40%] w-[80%] m-auto">
           <form className="flex flex-col w-[70%] justify-center gap-5">
             <div className="m-auto font-bold text-2xl">
               <h1>Sign In</h1>
@@ -44,7 +44,7 @@ const Login = ({ setUserName }) => {
               <input
                 value={userEmail}
                 onChange={onEmailChange}
-                className="w-[100%] p-2 text-black outline-none rounded-sm"
+                className="w-[100%] p-2 text-black border border-black outline-none rounded-sm"
                 type="text"
                 name="email"
                 required
@@ -55,7 +55,7 @@ const Login = ({ setUserName }) => {
               <input
                 value={userPass}
                 onChange={onPassChange}
-                className="w-[100%] p-2 text-black outline-none rounded-sm"
+                className="w-[100%] p-2 text-black border border-black outline-none rounded-sm"
                 type="password"
                 name="pass"
                 required
@@ -66,7 +66,7 @@ const Login = ({ setUserName }) => {
                 type="submit"
                 onClick={onSubmit}
                 value="Sign In"
-                className="px-4 py-2 hover:bg-[rgb(92,46,138)] rounded-md bg-[rgb(145,63,226)] cursor-pointer"
+                className="px-4 py-2 hover:bg-[rgb(27,42,65)] text-white rounded-md bg-[rgb(42,59,86)] cursor-pointer"
               />
             </div>
             {error && (

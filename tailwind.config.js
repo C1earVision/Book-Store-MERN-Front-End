@@ -22,6 +22,9 @@ export default {
 
       '2xl': '1536px',
       // => @media (min-width: 1536px) { ... }
+    },
+    fontFamily: {
+      'roboto':['roboto']
     }
   },
   plugins: [],

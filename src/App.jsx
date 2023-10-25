@@ -13,6 +13,7 @@ import AdminPage from './pages/AdminPage'
 import ModifyPage from './pages/ModifyPage'
 import Footer from './components/Footer'
 import About from './pages/About'
+import ShowFooter from './components/ShowFooter'
 
 
 function App() {
@@ -28,7 +29,8 @@ function App() {
         <Route path="/" element={<Home setBookId={setBookId} bookId={bookId} />} />
         <Route path="/search">
           <Route index element={<Search setBookId={setBookId} bookId={bookId} searchData={searchData} setSearchData={setSearchData} />} />
-          <Route path=':id' element={<Book bookId={bookId} setBookId={setBookId} />} />
+          <Route path='books/:id' element={<Book bookId={bookId} setBookId={setBookId} />} />
+          <Route path="books/:id/modify" element={<ModifyPage />} /> 
         </Route>
         <Route path="/login" element={<Login setUserName={setUserName} />} />
         <Route path="/wishlist">
@@ -41,7 +43,9 @@ function App() {
         <Route path="/adminpage" element={<AdminPage />} />
         <Route path="/about" element={<About />} />
       </Routes>
-      <Footer />
+      <ShowFooter>
+        <Footer />
+      </ShowFooter>
     </>
   )
 }
