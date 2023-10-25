@@ -106,7 +106,7 @@ const AdminPage = () => {
               <input
                 value={dataChanged.author}
                 onChange={(e) => ChangeData(e, "author")}
-                className="rounded-sm border border-black text-white p-1 ml-5 md:w-[18.5%] w-[50%] outline-none"
+                className="rounded-sm border border-black text-black p-1 ml-5 md:w-[18.5%] w-[50%] outline-none"
                 type="text"
               />
             </div>
@@ -120,7 +120,7 @@ const AdminPage = () => {
               <input
                 value={dataChanged.authorDetails}
                 onChange={(e) => ChangeData(e, "authorDetails")}
-                className="rounded-sm text-white ml-5 border border-black md:w-[50%] w-[90%] p-5 outline-none"
+                className="rounded-sm text-black ml-5 border border-black md:w-[50%] w-[90%] p-5 outline-none"
                 type="text"
               />
             </div>
