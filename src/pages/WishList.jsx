@@ -62,7 +62,7 @@ const WishList = ({ setBookId, bookId }) => {
         <h1 className="text-[rgb(82,82,91)] p-3 text-xl">Book List</h1>
           <hr />
           <div className="grid py-5 lg:grid-cols-6 md:grid-cols-4 xsm:grid-cols-3 grid-cols-1 m-auto place-items-center">
-            {data ? (
+            {data.length>0 ? (
               data.map((book) => {
                 const { name, _id, price, author, genre, img } = book;
                 return (

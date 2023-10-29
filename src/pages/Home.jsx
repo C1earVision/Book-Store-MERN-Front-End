@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 const Home = ({ setBookId, bookId }) => {
   const [data, setData] = useState([]);
   const [isSpinning, setIsSpinning] = useState(false);
+  const [page, setPage] = useState(2)
   const navigate = useNavigate();
   useEffect(() => {
     const getData = async () => {
@@ -42,14 +43,28 @@ const Home = ({ setBookId, bookId }) => {
     }, 1000);
   };
 
+  const loadMore = ()=>{
+    const getData = async () => {
+      setIsSpinning(true);
+      const data = await axios.get(
+        `https://book-store-u2sc.onrender.com/api/v1/books?page=${page}`
+      );
+      setData(data.data.books);
+      setPage(page+1)
+      setIsSpinning(false)
+    };
+    getData();
+     
+  }
+
   return (
     <>
-    <div className="flex flex-row font-roboto">
+    <div className="flex flex-col font-roboto">
       <div className="w-[100%] ml-auto mt-[5%]">
           <h1 className="text-[rgb(82,82,91)] p-3 text-xl">Book List</h1>
           <hr />
           <div className="grid py-5 lg:grid-cols-6 md:grid-cols-4 xsm:grid-cols-3 grid-cols-1 m-auto place-items-center">
-            {data ? (
+            {data.length > 0 ? (
               data.map((book) => {
                 const { name, _id, price, author, genre, img } = book;
                 return (
@@ -90,6 +105,13 @@ const Home = ({ setBookId, bookId }) => {
             )}
           </div>
         </div>
+        <div className="mx-auto flex flex-col">
+          <div className="self-center mb-5">
+            {isSpinning && <i className="fa-solid fa-spinner fa-spin fa-3x"></i>}
+          </div>
+          <button onClick={loadMore} className="px-6 py-2 bg-[rgb(49,71,106)] text-white rounded-sm">Load More</button> 
+        </div>
+        
     </div>
       
     </>
