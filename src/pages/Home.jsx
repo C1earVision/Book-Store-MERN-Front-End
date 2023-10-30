@@ -44,8 +44,8 @@ const Home = ({ setBookId, bookId }) => {
   };
 
   const loadMore = ()=>{
+    setIsSpinning(true)
     const getData = async () => {
-      setIsSpinning(true);
       const data = await axios.get(
         `https://book-store-u2sc.onrender.com/api/v1/books?page=${page}`
       );
@@ -56,11 +56,10 @@ const Home = ({ setBookId, bookId }) => {
     getData();
      
   }
-
   return (
     <>
     <div className="flex flex-col font-roboto">
-      <div className="w-[100%] ml-auto mt-[5%]">
+      <div className={`w-[100%] ml-auto mt-[5%]`}>
           <h1 className="text-[rgb(82,82,91)] p-3 text-xl">Book List</h1>
           <hr />
           <div className="grid py-5 lg:grid-cols-6 md:grid-cols-4 xsm:grid-cols-3 grid-cols-1 m-auto place-items-center">
@@ -92,7 +91,7 @@ const Home = ({ setBookId, bookId }) => {
                       </button>
                       {_id === bookId && isSpinning && (
                         <div className="mt-4 ml-3">
-                          <i className="fa-solid fa-circle-notch fa-spin text-black"></i>
+                          <i className="fa-solid fa-circle-notch fa-spin"></i>
                           {timeOut()}
                         </div>
                       )}
@@ -101,17 +100,18 @@ const Home = ({ setBookId, bookId }) => {
                 );
               })
             ) : (
-              <i className="fa-solid fa-spinner fa-spin fa-3x"></i>
+              <div className="h-[500px]">
+                <i className="fa-solid fa-spinner fa-spin fa-3x"></i>
+              </div>
             )}
           </div>
         </div>
         <div className="mx-auto flex flex-col">
-          <div className="self-center mb-5">
-            {isSpinning && <i className="fa-solid fa-spinner fa-spin fa-3x"></i>}
-          </div>
+          {isSpinning && <div className="mx-auto my-3">
+            <i className="fa-solid fa-spinner fa-spin fa-3x"></i>
+          </div>}
           <button onClick={loadMore} className="px-6 py-2 bg-[rgb(49,71,106)] text-white rounded-sm">Load More</button> 
-        </div>
-        
+        </div> 
     </div>
       
     </>

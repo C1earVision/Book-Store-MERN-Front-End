@@ -100,7 +100,9 @@ const WishList = ({ setBookId, bookId }) => {
                 );
               })
             ) : (
-              <i className="fa-solid fa-spinner fa-spin fa-3x"></i>
+              <div className="h-[500px]">
+                <i className="fa-solid fa-spinner fa-spin fa-3x"></i>                
+              </div>
             )}
           </div>
         </div>
