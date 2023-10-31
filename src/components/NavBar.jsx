@@ -210,7 +210,8 @@ const NavBar = ({ searchData, setSearchData, userName }) => {
                   <i className="fa-solid fa-circle-user fa-2x text-center relative"></i>
                 </button>
                 {clicked? <div className={`absolute bg-white right-2 top-[80px] shadow-lg rounded-lg`}>
-                  <div className="self-center p-7">
+                  <div className="self-center p-7 flex flex-col">
+                    <h1 className="px-3 py-2">Hello {userName?.split(" ")[0]}</h1>
                     <button
                       onClick={logOut}
                       className="hover:bg-[rgb(244,244,245)] px-3 py-2 rounded-lg transition-all duration-150"

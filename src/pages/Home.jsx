@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 const Home = ({ setBookId, bookId }) => {
   const [data, setData] = useState([]);
   const [isSpinning, setIsSpinning] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(2)
   const navigate = useNavigate();
   useEffect(() => {
@@ -44,14 +45,14 @@ const Home = ({ setBookId, bookId }) => {
   };
 
   const loadMore = ()=>{
-    setIsSpinning(true)
+    setIsLoading(true)
     const getData = async () => {
       const data = await axios.get(
         `https://book-store-u2sc.onrender.com/api/v1/books?page=${page}`
       );
       setData(data.data.books);
       setPage(page+1)
-      setIsSpinning(false)
+      setIsLoading(false)
     };
     getData();
      
@@ -90,7 +91,7 @@ const Home = ({ setBookId, bookId }) => {
                         Wish List Book
                       </button>
                       {_id === bookId && isSpinning && (
-                        <div className="mt-4 ml-3">
+                        <div className="mt-4 ml-3 text-black">
                           <i className="fa-solid fa-circle-notch fa-spin"></i>
                           {timeOut()}
                         </div>
@@ -107,7 +108,7 @@ const Home = ({ setBookId, bookId }) => {
           </div>
         </div>
         <div className="mx-auto flex flex-col">
-          {isSpinning && <div className="mx-auto my-3">
+          {isLoading && <div className="mx-auto my-3">
             <i className="fa-solid fa-spinner fa-spin fa-3x"></i>
           </div>}
           <button onClick={loadMore} className="px-6 py-2 bg-[rgb(49,71,106)] text-white rounded-sm">Load More</button> 
