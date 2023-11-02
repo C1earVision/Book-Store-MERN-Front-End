@@ -9,7 +9,7 @@ const Home = ({ setBookId, bookId }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(2)
   const navigate = useNavigate();
-  const [ischecked, setIsChecked] = useState({fantasy:false,adventure:false,fiction:false})
+  const [ischecked, setIsChecked] = useState({})
   useEffect(() => {
     const getData = async () => {
       const data = await axios.get(
@@ -72,7 +72,6 @@ const Home = ({ setBookId, bookId }) => {
   }
   useEffect(()=>{
     const sortCategory = async ()=>{
-      console.log(ischecked)
       let categorys = []
       for(let i=0;i<Object.keys(ischecked).length;i++){
         if(ischecked[Object.keys(ischecked)[i]] === true){
