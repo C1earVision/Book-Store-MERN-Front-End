@@ -67,8 +67,8 @@ const Home = ({ setBookId, bookId }) => {
     };
     getData();
   }
-  const setCategories = (category)=>{
-    setIsChecked({...ischecked, [category]:!ischecked[category]})
+  const setCategories = async (category)=>{
+    await setIsChecked({...ischecked, [category]:!ischecked[category]})
     sortCategory()
   }
   const sortCategory = async ()=>{
