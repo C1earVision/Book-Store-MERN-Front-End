@@ -35,7 +35,6 @@ const Home = ({ setBookId, bookId }) => {
         method: "POST",
         url: `https://book-store-u2sc.onrender.com/api/v1/user/wishlist/${bookId}`,
       })
-      .then((res) => console.log(res))
       .catch((err) => alert(err.response.data.msg));
   };
 
@@ -79,7 +78,6 @@ const Home = ({ setBookId, bookId }) => {
       }
     }
     const categoryString = categorys.sort().join(', ')
-    console.log(categoryString)
     const data = await axios.get(
       `https://book-store-u2sc.onrender.com/api/v1/books?genre=${categoryString}`
     );
@@ -111,7 +109,7 @@ const Home = ({ setBookId, bookId }) => {
                   <label>Fantasy</label>
                 </div>
                 <div className="flex flex-row gap-3">
-                  <input onChange={()=>setCategories('adventure')} type="checkbox" n />
+                  <input onChange={()=>setCategories('adventure')} type="checkbox" />
                   <label>Adventure</label>
                 </div>
                 <div className="flex flex-row gap-3">
