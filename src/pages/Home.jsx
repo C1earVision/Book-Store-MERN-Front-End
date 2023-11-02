@@ -78,7 +78,7 @@ const Home = ({ setBookId, bookId }) => {
         categorys.push(Object.keys(ischecked)[i])
       }
     }
-    const categoryString = categorys.join(', ')
+    const categoryString = categorys.sort().join(', ')
     console.log(categoryString)
     const data = await axios.get(
       `https://book-store-u2sc.onrender.com/api/v1/books?genre=${categoryString}`
