@@ -67,23 +67,27 @@ const Home = ({ setBookId, bookId }) => {
     };
     getData();
   }
-  const setCategories = async (category)=>{
-    await setIsChecked({...ischecked, [category]:!ischecked[category]})
-    sortCategory()
+  const setCategories = (category)=>{
+    setIsChecked({...ischecked, [category]:!ischecked[category]})
   }
-  const sortCategory = async ()=>{
-    let categorys = []
-    for(let i=0;i<Object.keys(ischecked).length;i++){
-      if(ischecked[Object.keys(ischecked)[i]] === true){
-        categorys.push(Object.keys(ischecked)[i])
+  useEffect(()=>{
+    const sortCategory = async ()=>{
+      console.log(ischecked)
+      let categorys = []
+      for(let i=0;i<Object.keys(ischecked).length;i++){
+        if(ischecked[Object.keys(ischecked)[i]] === true){
+          categorys.push(Object.keys(ischecked)[i])
+        }
       }
+      const categoryString = categorys.sort().join(', ')
+      const data = await axios.get(
+        `https://book-store-u2sc.onrender.com/api/v1/books?genre=${categoryString}`
+      );
+      setData(data.data.books);
     }
-    const categoryString = categorys.sort().join(', ')
-    const data = await axios.get(
-      `https://book-store-u2sc.onrender.com/api/v1/books?genre=${categoryString}`
-    );
-    setData(data.data.books);
-  }
+    sortCategory()
+  }, [ischecked])
+
   return (
     <>
       <div className="flex flex-col font-roboto">
