@@ -129,7 +129,7 @@ const Home = ({ setBookId, bookId }) => {
                   <label>Romance</label>
                 </div>
                 <div className="p-2 my-3 rounded-sm text-white text-center bg-[rgb(42,59,86)] active:bg-[rgb(19,33,55)] hover:bg-[rgb(30,46,73)]">
-                  <button onClick={sortCategory}>Filter</button>
+                  <button className="w-full" onClick={sortCategory}>Filter</button>
                 </div>
               </div>
             </div>
