@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
+import AllBooks from './pages/AllBooks'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
@@ -17,29 +18,28 @@ import ShowFooter from './components/ShowFooter'
 
 
 function App() {
-  const navigate = useNavigate()
-  const {searchData, setSearchData, bookId, setBookId, userName, setUserName} = useGlobalContext();
 
   return (
     <>
       <ShowNavBar>
-        <NavBar searchData={searchData} setSearchData={setSearchData} userName={userName} />
+        <NavBar />
       </ShowNavBar>
       <Routes>
-        <Route path="/" element={<Home setBookId={setBookId} bookId={bookId} />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<AllBooks />} />
         <Route path="/search">
-          <Route index element={<Search setBookId={setBookId} bookId={bookId} searchData={searchData} setSearchData={setSearchData} />} />
-          <Route path='books/:id' element={<Book bookId={bookId} setBookId={setBookId} />} />
-          <Route path="books/:id/modify" element={<ModifyPage />} /> 
+          <Route index element={<Search />} />
+          <Route path='products/:id' element={<Book />} />
+          <Route path="products/:id/modify" element={<ModifyPage />} /> 
         </Route>
-        <Route path="/login" element={<Login setUserName={setUserName} />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/wishlist">
-          <Route index element={<WishList setBookId={setBookId} bookId={bookId} />} />
-          <Route path='books/:id' element={<Book bookId={bookId} setBookId={setBookId} />} />
+          <Route index element={<WishList />} />
+          <Route path='products/:id' element={<Book />} />
         </Route>
-        <Route path="/register" element={<Register setUserName={setUserName} />} />
-        <Route path="books/:id" element={<Book bookId={bookId} setBookId={setBookId} />} />
-        <Route path="/books/:id/modify" element={<ModifyPage />} />        
+        <Route path="/register" element={<Register />} />
+        <Route path="products/:id" element={<Book />} />
+        <Route path="/products/:id/modify" element={<ModifyPage />} />        
         <Route path="/adminpage" element={<AdminPage />} />
         <Route path="/about" element={<About />} />
       </Routes>
